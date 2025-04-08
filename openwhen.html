@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open When... 💌</title>
+
+  <!-- 💕 Style -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #84e3f4;
+      font-family: 'Quicksand', sans-serif;
+      color: #05361e;
+      text-align: center;
+      background: url('img1.gif') center/cover;
+    }
+
+ 
+    h1 {
+      font-family: 'Dancing Script', cursive;
+  font-size: 6.5rem;
+  font-weight: 1200;
+  
+  margin-bottom: 40px;
+  text-align: center;
+
+      color: #032813;
+    }
+    .envelope-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 50px 20px;
+    }
+
+    .envelope {
+      background-color: #52ab72;
+  border-radius: 20px;
+  width: 280px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  padding: 10px;
+  text-align: center;
+}
+
+
+    .envelope:hover {
+      background-color: #20a9c8;
+      transform: scale(1.05);
+    }
+
+    .note {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #68b9e5;
+  color: #033244;
+  border-radius: 20px;
+  padding: 40px 50px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: popIn 0.4s ease;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+    @keyframes popIn {
+      from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close-btn {
+      background-color: #040551;
+      border: none;
+      color: rgb(19, 161, 187);
+      padding: 10px 20px;
+      border-radius: 25px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .close-btn:hover {
+      background-color: #03361e;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 2.5rem;
+      color: #061056;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- 🎶 Background Music -->
+<audio id="bg-music" autoplay loop>
+  <source src="nothing_bruno_major.mp3" type="audio/mpeg">
+  
+</audio>
+<button onclick="document.getElementById('bg-music').play()" style="position: fixed; top: 20px; right: 20px; background: #26b487; border: none; padding: 10px 15px; border-radius: 10px; font-weight: bold; cursor: pointer;">
+  🎵 This song makes me think of you
+</button>
+
+
+  <h1>Open When... 💌</h1>
+
+  <div class="envelope-grid">
+    <div class="envelope" onclick="openNote(0)">you miss me</div>
+    <div class="envelope" onclick="openNote(1)">you had a bad day</div>
+    <div class="envelope" onclick="openNote(2)">you're overthinking</div>
+    <div class="envelope" onclick="openNote(3)">you can't sleep</div>
+  </div>
+
+  <!-- 💬 Love Notes -->
+  <div class="note" id="noteBox">
+    <div id="noteContent"></div>
+    <button class="close-btn" onclick="closeNote()">Close 💗</button>
+  </div>
+
+  <footer>
+    Always here for you — no matter what day it is 💌
+  </footer>
+
+  <!-- ✨ Script -->
+  <script>
+    const notes = [
+      "Hey love, I miss you too and i know it sucks that u cant be here to hug ur super cute gf but we got this baby *i got you* and I'm always just a message away.Imagine me hugging you super tight right now 🤗💗",
+      "Rough days suck, but you’re stronger than you know and you're not alone i know i m not there to beat up people who annoy you but please dont put your spirits down cause of them. I’m cheering for you — always. Let’s cry, laugh and get through this together. I love you. Dial my number right now and I know YOU GOT THIS 💪💕",
+      "Your thoughts can be loud, I know. But breathe, okay? You're doing amazing.I know you always had your doubts bout long distance working out but if anything that i am sure of is that you are worth it and I love every piece of you — even the overthinking parts. Tell me whats goin on in ur head we can sort things out together, i love you baby 💭💖",
+      "Hi baby...I know your mind is probably racing and the silence feels too loud.So close your eyes and imagine my arms around you, my heartbeat in sync with yours.You're safe, you're loved, and I'm right there with you — even if it’s just in your dreams.Sleep tight, my love. I’ll meet you there. 🌙💗"
+
+
+
+    ];
+
+    function openNote(index) {
+      document.getElementById("noteContent").innerHTML = notes[index];
+      document.getElementById("noteBox").style.display = "block";
+    }
+
+    function closeNote() {
+      document.getElementById("noteBox").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
